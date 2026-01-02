@@ -1,4 +1,4 @@
-name: Deploy Gitea
+name: Deploy Gitea (Swarm)
 
 on:
   push:
@@ -7,13 +7,12 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, windows]
-
+    runs-on: [self-hosted, windows, x64]
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy using Docker Compose
+      - name: Deploy using Docker Swarm
         shell: powershell
         run: |
-          & "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose up -d
+          & "C:\Program Files\Docker\Docker\resources\bin\docker.exe" stack deploy -c docker-compose.yml gitea
