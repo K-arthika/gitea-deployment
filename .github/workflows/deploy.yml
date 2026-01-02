@@ -16,4 +16,4 @@ jobs:
       - name: Deploy using Docker Compose
         shell: powershell
         run: |
-          "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose up -d
+          & "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose up -d
